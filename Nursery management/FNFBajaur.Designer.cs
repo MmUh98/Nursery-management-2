@@ -1,6 +1,6 @@
 ﻿namespace Nursery_management
 {
-    partial class FNF_Abbottabad
+    partial class FNFBajaur
     {
         /// <summary>
         /// Required designer variable.
@@ -36,13 +36,24 @@
             System.Windows.Forms.Label no_of_Fruit_Plants_RaisedLabel;
             System.Windows.Forms.Label total_No_of_Plants_available_for_seasonLabel;
             System.Windows.Forms.Label under_Size_PlantsLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FNF_Abbottabad));
-            this.fNFAbbottabadTblBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FNFBajaur));
+            this.databaseDataSet = new Nursery_management.DatabaseDataSet();
+            this.fNFBajaurTblBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fNFBajaurTblTableAdapter = new Nursery_management.DatabaseDataSetTableAdapters.FNFBajaurTblTableAdapter();
+            this.tableAdapterManager = new Nursery_management.DatabaseDataSetTableAdapters.TableAdapterManager();
+            this.fNFBajaurTblBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.fNFBajaurTblBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.districtTextBox = new System.Windows.Forms.TextBox();
             this.name_of_Fruit_Nursery_FarmTextBox = new System.Windows.Forms.TextBox();
@@ -52,20 +63,9 @@
             this.under_Size_PlantsTextBox = new System.Windows.Forms.TextBox();
             this.Update_button = new System.Windows.Forms.Button();
             this.Back_button = new System.Windows.Forms.Button();
-            this.fNFAbbottabadTblBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.databaseDataSet = new Nursery_management.DatabaseDataSet();
-            this.fNFAbbottabadTblTableAdapter = new Nursery_management.DatabaseDataSetTableAdapters.FNFAbbottabadTblTableAdapter();
-            this.tableAdapterManager = new Nursery_management.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.Delete_button = new System.Windows.Forms.Button();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.fNFAbbottabadTblBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Search_button = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             idLabel = new System.Windows.Forms.Label();
             districtLabel = new System.Windows.Forms.Label();
             name_of_Fruit_Nursery_FarmLabel = new System.Windows.Forms.Label();
@@ -73,10 +73,10 @@
             no_of_Fruit_Plants_RaisedLabel = new System.Windows.Forms.Label();
             total_No_of_Plants_available_for_seasonLabel = new System.Windows.Forms.Label();
             under_Size_PlantsLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.fNFAbbottabadTblBindingNavigator)).BeginInit();
-            this.fNFAbbottabadTblBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fNFAbbottabadTblBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fNFBajaurTblBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fNFBajaurTblBindingNavigator)).BeginInit();
+            this.fNFBajaurTblBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,17 +84,18 @@
             // 
             idLabel.AutoSize = true;
             idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            idLabel.Location = new System.Drawing.Point(188, 51);
+            idLabel.Location = new System.Drawing.Point(85, 88);
             idLabel.Name = "idLabel";
             idLabel.Size = new System.Drawing.Size(27, 20);
             idLabel.TabIndex = 1;
             idLabel.Text = "Id:";
+            idLabel.Click += new System.EventHandler(this.idLabel_Click);
             // 
             // districtLabel
             // 
             districtLabel.AutoSize = true;
             districtLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            districtLabel.Location = new System.Drawing.Point(188, 99);
+            districtLabel.Location = new System.Drawing.Point(85, 135);
             districtLabel.Name = "districtLabel";
             districtLabel.Size = new System.Drawing.Size(62, 20);
             districtLabel.TabIndex = 3;
@@ -104,7 +105,7 @@
             // 
             name_of_Fruit_Nursery_FarmLabel.AutoSize = true;
             name_of_Fruit_Nursery_FarmLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            name_of_Fruit_Nursery_FarmLabel.Location = new System.Drawing.Point(188, 146);
+            name_of_Fruit_Nursery_FarmLabel.Location = new System.Drawing.Point(85, 181);
             name_of_Fruit_Nursery_FarmLabel.Name = "name_of_Fruit_Nursery_FarmLabel";
             name_of_Fruit_Nursery_FarmLabel.Size = new System.Drawing.Size(208, 20);
             name_of_Fruit_Nursery_FarmLabel.TabIndex = 5;
@@ -114,7 +115,7 @@
             // 
             name_of_FruitLabel.AutoSize = true;
             name_of_FruitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            name_of_FruitLabel.Location = new System.Drawing.Point(188, 196);
+            name_of_FruitLabel.Location = new System.Drawing.Point(85, 223);
             name_of_FruitLabel.Name = "name_of_FruitLabel";
             name_of_FruitLabel.Size = new System.Drawing.Size(109, 20);
             name_of_FruitLabel.TabIndex = 7;
@@ -124,7 +125,7 @@
             // 
             no_of_Fruit_Plants_RaisedLabel.AutoSize = true;
             no_of_Fruit_Plants_RaisedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            no_of_Fruit_Plants_RaisedLabel.Location = new System.Drawing.Point(188, 244);
+            no_of_Fruit_Plants_RaisedLabel.Location = new System.Drawing.Point(85, 263);
             no_of_Fruit_Plants_RaisedLabel.Name = "no_of_Fruit_Plants_RaisedLabel";
             no_of_Fruit_Plants_RaisedLabel.Size = new System.Drawing.Size(189, 20);
             no_of_Fruit_Plants_RaisedLabel.TabIndex = 9;
@@ -134,7 +135,7 @@
             // 
             total_No_of_Plants_available_for_seasonLabel.AutoSize = true;
             total_No_of_Plants_available_for_seasonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            total_No_of_Plants_available_for_seasonLabel.Location = new System.Drawing.Point(188, 297);
+            total_No_of_Plants_available_for_seasonLabel.Location = new System.Drawing.Point(85, 304);
             total_No_of_Plants_available_for_seasonLabel.Name = "total_No_of_Plants_available_for_seasonLabel";
             total_No_of_Plants_available_for_seasonLabel.Size = new System.Drawing.Size(282, 20);
             total_No_of_Plants_available_for_seasonLabel.TabIndex = 11;
@@ -144,19 +145,42 @@
             // 
             under_Size_PlantsLabel.AutoSize = true;
             under_Size_PlantsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            under_Size_PlantsLabel.Location = new System.Drawing.Point(188, 350);
+            under_Size_PlantsLabel.Location = new System.Drawing.Point(85, 355);
             under_Size_PlantsLabel.Name = "under_Size_PlantsLabel";
             under_Size_PlantsLabel.Size = new System.Drawing.Size(140, 20);
             under_Size_PlantsLabel.TabIndex = 13;
             under_Size_PlantsLabel.Text = "Under Size Plants:";
             // 
-            // fNFAbbottabadTblBindingNavigator
+            // databaseDataSet
             // 
-            this.fNFAbbottabadTblBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.fNFAbbottabadTblBindingNavigator.BindingSource = this.fNFAbbottabadTblBindingSource;
-            this.fNFAbbottabadTblBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.fNFAbbottabadTblBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.fNFAbbottabadTblBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // fNFBajaurTblBindingSource
+            // 
+            this.fNFBajaurTblBindingSource.DataMember = "FNFBajaurTbl";
+            this.fNFBajaurTblBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // fNFBajaurTblTableAdapter
+            // 
+            this.fNFBajaurTblTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.DistractAreaTblTableAdapter = null;
+            this.tableAdapterManager.FNFAbbottabadTblTableAdapter = null;
+            this.tableAdapterManager.FNFBajaurTblTableAdapter = this.fNFBajaurTblTableAdapter;
+            this.tableAdapterManager.FNFChitralLowerTblTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = Nursery_management.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // fNFBajaurTblBindingNavigator
+            // 
+            this.fNFBajaurTblBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.fNFBajaurTblBindingNavigator.BindingSource = this.fNFBajaurTblBindingSource;
+            this.fNFBajaurTblBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+            this.fNFBajaurTblBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.fNFBajaurTblBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -168,170 +192,17 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.fNFAbbottabadTblBindingNavigatorSaveItem});
-            this.fNFAbbottabadTblBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.fNFAbbottabadTblBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.fNFAbbottabadTblBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.fNFAbbottabadTblBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.fNFAbbottabadTblBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.fNFAbbottabadTblBindingNavigator.Name = "fNFAbbottabadTblBindingNavigator";
-            this.fNFAbbottabadTblBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.fNFAbbottabadTblBindingNavigator.Size = new System.Drawing.Size(927, 25);
-            this.fNFAbbottabadTblBindingNavigator.TabIndex = 0;
-            this.fNFAbbottabadTblBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFAbbottabadTblBindingSource, "Id", true));
-            this.idTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idTextBox.Location = new System.Drawing.Point(499, 51);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(334, 26);
-            this.idTextBox.TabIndex = 2;
-            // 
-            // districtTextBox
-            // 
-            this.districtTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFAbbottabadTblBindingSource, "District", true));
-            this.districtTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.districtTextBox.Location = new System.Drawing.Point(499, 99);
-            this.districtTextBox.Name = "districtTextBox";
-            this.districtTextBox.Size = new System.Drawing.Size(334, 26);
-            this.districtTextBox.TabIndex = 4;
-            // 
-            // name_of_Fruit_Nursery_FarmTextBox
-            // 
-            this.name_of_Fruit_Nursery_FarmTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFAbbottabadTblBindingSource, "Name_of_Fruit_Nursery_Farm", true));
-            this.name_of_Fruit_Nursery_FarmTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_of_Fruit_Nursery_FarmTextBox.Location = new System.Drawing.Point(499, 146);
-            this.name_of_Fruit_Nursery_FarmTextBox.Name = "name_of_Fruit_Nursery_FarmTextBox";
-            this.name_of_Fruit_Nursery_FarmTextBox.Size = new System.Drawing.Size(334, 26);
-            this.name_of_Fruit_Nursery_FarmTextBox.TabIndex = 6;
-            // 
-            // name_of_FruitTextBox
-            // 
-            this.name_of_FruitTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFAbbottabadTblBindingSource, "Name_of_Fruit", true));
-            this.name_of_FruitTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.name_of_FruitTextBox.Location = new System.Drawing.Point(499, 196);
-            this.name_of_FruitTextBox.Name = "name_of_FruitTextBox";
-            this.name_of_FruitTextBox.Size = new System.Drawing.Size(334, 26);
-            this.name_of_FruitTextBox.TabIndex = 8;
-            // 
-            // no_of_Fruit_Plants_RaisedTextBox
-            // 
-            this.no_of_Fruit_Plants_RaisedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFAbbottabadTblBindingSource, "No_of_Fruit_Plants_Raised", true));
-            this.no_of_Fruit_Plants_RaisedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.no_of_Fruit_Plants_RaisedTextBox.Location = new System.Drawing.Point(499, 244);
-            this.no_of_Fruit_Plants_RaisedTextBox.Name = "no_of_Fruit_Plants_RaisedTextBox";
-            this.no_of_Fruit_Plants_RaisedTextBox.Size = new System.Drawing.Size(334, 26);
-            this.no_of_Fruit_Plants_RaisedTextBox.TabIndex = 10;
-            // 
-            // total_No_of_Plants_available_for_seasonTextBox
-            // 
-            this.total_No_of_Plants_available_for_seasonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFAbbottabadTblBindingSource, "Total_No_of_Plants_available_for_season", true));
-            this.total_No_of_Plants_available_for_seasonTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.total_No_of_Plants_available_for_seasonTextBox.Location = new System.Drawing.Point(499, 297);
-            this.total_No_of_Plants_available_for_seasonTextBox.Name = "total_No_of_Plants_available_for_seasonTextBox";
-            this.total_No_of_Plants_available_for_seasonTextBox.Size = new System.Drawing.Size(334, 26);
-            this.total_No_of_Plants_available_for_seasonTextBox.TabIndex = 12;
-            // 
-            // under_Size_PlantsTextBox
-            // 
-            this.under_Size_PlantsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFAbbottabadTblBindingSource, "Under_Size_Plants", true));
-            this.under_Size_PlantsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.under_Size_PlantsTextBox.Location = new System.Drawing.Point(499, 350);
-            this.under_Size_PlantsTextBox.Name = "under_Size_PlantsTextBox";
-            this.under_Size_PlantsTextBox.Size = new System.Drawing.Size(334, 26);
-            this.under_Size_PlantsTextBox.TabIndex = 14;
-            // 
-            // Update_button
-            // 
-            this.Update_button.BackColor = System.Drawing.Color.DodgerBlue;
-            this.Update_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Update_button.Location = new System.Drawing.Point(626, 404);
-            this.Update_button.Name = "Update_button";
-            this.Update_button.Size = new System.Drawing.Size(75, 34);
-            this.Update_button.TabIndex = 15;
-            this.Update_button.Text = "Update";
-            this.Update_button.UseVisualStyleBackColor = false;
-            this.Update_button.Click += new System.EventHandler(this.Update_button_Click);
-            // 
-            // Back_button
-            // 
-            this.Back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Back_button.Location = new System.Drawing.Point(192, 404);
-            this.Back_button.Name = "Back_button";
-            this.Back_button.Size = new System.Drawing.Size(75, 34);
-            this.Back_button.TabIndex = 18;
-            this.Back_button.Text = "Back";
-            this.Back_button.UseVisualStyleBackColor = true;
-            this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
-            // 
-            // fNFAbbottabadTblBindingSource
-            // 
-            this.fNFAbbottabadTblBindingSource.DataMember = "FNFAbbottabadTbl";
-            this.fNFAbbottabadTblBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // databaseDataSet
-            // 
-            this.databaseDataSet.DataSetName = "DatabaseDataSet";
-            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // fNFAbbottabadTblTableAdapter
-            // 
-            this.fNFAbbottabadTblTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.DistractAreaTblTableAdapter = null;
-            this.tableAdapterManager.FNFAbbottabadTblTableAdapter = this.fNFAbbottabadTblTableAdapter;
-            this.tableAdapterManager.FNFBajaurTblTableAdapter = null;
-            this.tableAdapterManager.FNFChitralLowerTblTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = Nursery_management.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // Delete_button
-            // 
-            this.Delete_button.BackColor = System.Drawing.Color.Red;
-            this.Delete_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Delete_button.Location = new System.Drawing.Point(758, 404);
-            this.Delete_button.Name = "Delete_button";
-            this.Delete_button.Size = new System.Drawing.Size(75, 34);
-            this.Delete_button.TabIndex = 19;
-            this.Delete_button.Text = "Delete";
-            this.Delete_button.UseVisualStyleBackColor = false;
-            this.Delete_button.Click += new System.EventHandler(this.button1_Click);
+            this.fNFBajaurTblBindingNavigatorSaveItem});
+            this.fNFBajaurTblBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.fNFBajaurTblBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.fNFBajaurTblBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.fNFBajaurTblBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.fNFBajaurTblBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.fNFBajaurTblBindingNavigator.Name = "fNFBajaurTblBindingNavigator";
+            this.fNFBajaurTblBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+            this.fNFBajaurTblBindingNavigator.Size = new System.Drawing.Size(919, 25);
+            this.fNFBajaurTblBindingNavigator.TabIndex = 0;
+            this.fNFBajaurTblBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -341,6 +212,13 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -369,6 +247,26 @@
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -387,44 +285,146 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
-            // fNFAbbottabadTblBindingNavigatorSaveItem
+            // bindingNavigatorSeparator2
             // 
-            this.fNFAbbottabadTblBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.fNFAbbottabadTblBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("fNFAbbottabadTblBindingNavigatorSaveItem.Image")));
-            this.fNFAbbottabadTblBindingNavigatorSaveItem.Name = "fNFAbbottabadTblBindingNavigatorSaveItem";
-            this.fNFAbbottabadTblBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.fNFAbbottabadTblBindingNavigatorSaveItem.Text = "Save Data";
-            this.fNFAbbottabadTblBindingNavigatorSaveItem.Click += new System.EventHandler(this.fNFAbbottabadTblBindingNavigatorSaveItem_Click);
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // dataGridView1
+            // fNFBajaurTblBindingNavigatorSaveItem
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 475);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(888, 209);
-            this.dataGridView1.TabIndex = 20;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.fNFBajaurTblBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.fNFBajaurTblBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("fNFBajaurTblBindingNavigatorSaveItem.Image")));
+            this.fNFBajaurTblBindingNavigatorSaveItem.Name = "fNFBajaurTblBindingNavigatorSaveItem";
+            this.fNFBajaurTblBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
+            this.fNFBajaurTblBindingNavigatorSaveItem.Text = "Save Data";
+            this.fNFBajaurTblBindingNavigatorSaveItem.Click += new System.EventHandler(this.fNFBajaurTblBindingNavigatorSaveItem_Click);
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFBajaurTblBindingSource, "Id", true));
+            this.idTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idTextBox.Location = new System.Drawing.Point(381, 88);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.Size = new System.Drawing.Size(328, 26);
+            this.idTextBox.TabIndex = 2;
+            // 
+            // districtTextBox
+            // 
+            this.districtTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFBajaurTblBindingSource, "District", true));
+            this.districtTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.districtTextBox.Location = new System.Drawing.Point(381, 129);
+            this.districtTextBox.Name = "districtTextBox";
+            this.districtTextBox.Size = new System.Drawing.Size(328, 26);
+            this.districtTextBox.TabIndex = 4;
+            // 
+            // name_of_Fruit_Nursery_FarmTextBox
+            // 
+            this.name_of_Fruit_Nursery_FarmTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFBajaurTblBindingSource, "Name_of_Fruit_Nursery_Farm", true));
+            this.name_of_Fruit_Nursery_FarmTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_of_Fruit_Nursery_FarmTextBox.Location = new System.Drawing.Point(381, 175);
+            this.name_of_Fruit_Nursery_FarmTextBox.Name = "name_of_Fruit_Nursery_FarmTextBox";
+            this.name_of_Fruit_Nursery_FarmTextBox.Size = new System.Drawing.Size(328, 26);
+            this.name_of_Fruit_Nursery_FarmTextBox.TabIndex = 6;
+            // 
+            // name_of_FruitTextBox
+            // 
+            this.name_of_FruitTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFBajaurTblBindingSource, "Name_of_Fruit", true));
+            this.name_of_FruitTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_of_FruitTextBox.Location = new System.Drawing.Point(381, 217);
+            this.name_of_FruitTextBox.Name = "name_of_FruitTextBox";
+            this.name_of_FruitTextBox.Size = new System.Drawing.Size(328, 26);
+            this.name_of_FruitTextBox.TabIndex = 8;
+            // 
+            // no_of_Fruit_Plants_RaisedTextBox
+            // 
+            this.no_of_Fruit_Plants_RaisedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFBajaurTblBindingSource, "No_of_Fruit_Plants_Raised", true));
+            this.no_of_Fruit_Plants_RaisedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.no_of_Fruit_Plants_RaisedTextBox.Location = new System.Drawing.Point(381, 257);
+            this.no_of_Fruit_Plants_RaisedTextBox.Name = "no_of_Fruit_Plants_RaisedTextBox";
+            this.no_of_Fruit_Plants_RaisedTextBox.Size = new System.Drawing.Size(328, 26);
+            this.no_of_Fruit_Plants_RaisedTextBox.TabIndex = 10;
+            // 
+            // total_No_of_Plants_available_for_seasonTextBox
+            // 
+            this.total_No_of_Plants_available_for_seasonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFBajaurTblBindingSource, "Total_No_of_Plants_available_for_season", true));
+            this.total_No_of_Plants_available_for_seasonTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.total_No_of_Plants_available_for_seasonTextBox.Location = new System.Drawing.Point(381, 298);
+            this.total_No_of_Plants_available_for_seasonTextBox.Name = "total_No_of_Plants_available_for_seasonTextBox";
+            this.total_No_of_Plants_available_for_seasonTextBox.Size = new System.Drawing.Size(328, 26);
+            this.total_No_of_Plants_available_for_seasonTextBox.TabIndex = 12;
+            // 
+            // under_Size_PlantsTextBox
+            // 
+            this.under_Size_PlantsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.fNFBajaurTblBindingSource, "Under_Size_Plants", true));
+            this.under_Size_PlantsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.under_Size_PlantsTextBox.Location = new System.Drawing.Point(381, 349);
+            this.under_Size_PlantsTextBox.Name = "under_Size_PlantsTextBox";
+            this.under_Size_PlantsTextBox.Size = new System.Drawing.Size(328, 26);
+            this.under_Size_PlantsTextBox.TabIndex = 14;
+            // 
+            // Update_button
+            // 
+            this.Update_button.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.Update_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Update_button.Location = new System.Drawing.Point(513, 404);
+            this.Update_button.Name = "Update_button";
+            this.Update_button.Size = new System.Drawing.Size(75, 34);
+            this.Update_button.TabIndex = 16;
+            this.Update_button.Text = "Update";
+            this.Update_button.UseVisualStyleBackColor = false;
+            this.Update_button.Click += new System.EventHandler(this.Update_button_Click);
+            // 
+            // Back_button
+            // 
+            this.Back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Back_button.Location = new System.Drawing.Point(89, 404);
+            this.Back_button.Name = "Back_button";
+            this.Back_button.Size = new System.Drawing.Size(75, 34);
+            this.Back_button.TabIndex = 17;
+            this.Back_button.Text = "Back";
+            this.Back_button.UseVisualStyleBackColor = true;
+            this.Back_button.Click += new System.EventHandler(this.Back_button_Click);
+            // 
+            // Delete_button
+            // 
+            this.Delete_button.BackColor = System.Drawing.Color.Red;
+            this.Delete_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete_button.Location = new System.Drawing.Point(634, 404);
+            this.Delete_button.Name = "Delete_button";
+            this.Delete_button.Size = new System.Drawing.Size(75, 34);
+            this.Delete_button.TabIndex = 22;
+            this.Delete_button.Text = "Delete";
+            this.Delete_button.UseVisualStyleBackColor = false;
+            this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             // 
             // Search_button
             // 
             this.Search_button.BackColor = System.Drawing.Color.DodgerBlue;
             this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search_button.Location = new System.Drawing.Point(451, 404);
+            this.Search_button.Location = new System.Drawing.Point(344, 404);
             this.Search_button.Name = "Search_button";
-            this.Search_button.Size = new System.Drawing.Size(123, 34);
-            this.Search_button.TabIndex = 21;
+            this.Search_button.Size = new System.Drawing.Size(112, 34);
+            this.Search_button.TabIndex = 23;
             this.Search_button.Text = "Show Details";
             this.Search_button.UseVisualStyleBackColor = false;
             this.Search_button.Click += new System.EventHandler(this.Search_button_Click);
             // 
-            // FNF_Abbottabad
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 457);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(888, 278);
+            this.dataGridView1.TabIndex = 24;
+            // 
+            // FNFBajaur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Sienna;
-            this.ClientSize = new System.Drawing.Size(927, 687);
-            this.Controls.Add(this.Search_button);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(919, 691);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Search_button);
             this.Controls.Add(this.Delete_button);
             this.Controls.Add(this.Back_button);
             this.Controls.Add(this.Update_button);
@@ -442,15 +442,15 @@
             this.Controls.Add(this.total_No_of_Plants_available_for_seasonTextBox);
             this.Controls.Add(under_Size_PlantsLabel);
             this.Controls.Add(this.under_Size_PlantsTextBox);
-            this.Controls.Add(this.fNFAbbottabadTblBindingNavigator);
-            this.Name = "FNF_Abbottabad";
-            this.Text = "FNF_Abbottabad";
-            this.Load += new System.EventHandler(this.FNF_Abbottabad_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.fNFAbbottabadTblBindingNavigator)).EndInit();
-            this.fNFAbbottabadTblBindingNavigator.ResumeLayout(false);
-            this.fNFAbbottabadTblBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fNFAbbottabadTblBindingSource)).EndInit();
+            this.Controls.Add(this.fNFBajaurTblBindingNavigator);
+            this.Name = "FNFBajaur";
+            this.Text = "FNFBajaur";
+            this.Load += new System.EventHandler(this.FNFBajaur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fNFBajaurTblBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fNFBajaurTblBindingNavigator)).EndInit();
+            this.fNFBajaurTblBindingNavigator.ResumeLayout(false);
+            this.fNFBajaurTblBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -460,10 +460,10 @@
         #endregion
 
         private DatabaseDataSet databaseDataSet;
-        private System.Windows.Forms.BindingSource fNFAbbottabadTblBindingSource;
-        private DatabaseDataSetTableAdapters.FNFAbbottabadTblTableAdapter fNFAbbottabadTblTableAdapter;
+        private System.Windows.Forms.BindingSource fNFBajaurTblBindingSource;
+        private DatabaseDataSetTableAdapters.FNFBajaurTblTableAdapter fNFBajaurTblTableAdapter;
         private DatabaseDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator fNFAbbottabadTblBindingNavigator;
+        private System.Windows.Forms.BindingNavigator fNFBajaurTblBindingNavigator;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
@@ -475,7 +475,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton fNFAbbottabadTblBindingNavigatorSaveItem;
+        private System.Windows.Forms.ToolStripButton fNFBajaurTblBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.TextBox districtTextBox;
         private System.Windows.Forms.TextBox name_of_Fruit_Nursery_FarmTextBox;
@@ -486,7 +486,7 @@
         private System.Windows.Forms.Button Update_button;
         private System.Windows.Forms.Button Back_button;
         private System.Windows.Forms.Button Delete_button;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button Search_button;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

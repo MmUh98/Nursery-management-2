@@ -86,11 +86,29 @@
     <Compile Include="FNF Abbottabad.Designer.cs">
       <DependentUpon>FNF Abbottabad.cs</DependentUpon>
     </Compile>
+    <Compile Include="FNF Chitral Lower.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FNF Chitral Lower.Designer.cs">
+      <DependentUpon>FNF Chitral Lower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FNFBajaur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FNFBajaur.Designer.cs">
+      <DependentUpon>FNFBajaur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
     </Compile>
     <Compile Include="SignIn.cs">
       <SubType>Form</SubType>
@@ -109,6 +127,12 @@
     <EmbeddedResource Include="FNF Abbottabad.resx">
       <DependentUpon>FNF Abbottabad.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FNF Chitral Lower.resx">
+      <DependentUpon>FNF Chitral Lower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FNFBajaur.resx">
+      <DependentUpon>FNFBajaur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +146,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>

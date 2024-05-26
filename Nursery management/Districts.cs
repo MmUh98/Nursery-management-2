@@ -52,5 +52,26 @@ namespace Nursery_management
             fa.Show();
 
         }
+
+        private void Bajaur_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FNFBajaur fb = new FNFBajaur();
+            fb.Show();
+        }
+
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home h = new Home();
+            h.Show();
+        }
+
+        private void ChitralLower_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FNF_Chitral_Lower fcl = new FNF_Chitral_Lower();
+            fcl.Show();
+        }
     }
 }

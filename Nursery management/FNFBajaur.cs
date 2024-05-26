@@ -9,29 +9,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Nursery_management
 {
-    public partial class FNF_Abbottabad : Form
+    public partial class FNFBajaur : Form
     {
-        public FNF_Abbottabad()
+        public FNFBajaur()
         {
             InitializeComponent();
         }
 
-        private void fNFAbbottabadTblBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void fNFBajaurTblBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.fNFAbbottabadTblBindingSource.EndEdit();
+            this.fNFBajaurTblBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.databaseDataSet);
 
         }
 
-        private void FNF_Abbottabad_Load(object sender, EventArgs e)
+        private void FNFBajaur_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'databaseDataSet.FNFAbbottabadTbl' table. You can move, or remove it, as needed.
-            this.fNFAbbottabadTblTableAdapter.Fill(this.databaseDataSet.FNFAbbottabadTbl);
+            // TODO: This line of code loads data into the 'databaseDataSet.FNFBajaurTbl' table. You can move, or remove it, as needed.
+            this.fNFBajaurTblTableAdapter.Fill(this.databaseDataSet.FNFBajaurTbl);
 
+        }
+
+        private void idLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Back_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DistrictsForm1 df = new DistrictsForm1();
+            df.Show();
         }
 
         private void Update_button_Click(object sender, EventArgs e)
@@ -39,7 +50,7 @@ namespace Nursery_management
             // code for each box to be saved in the table against the reapective column
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\manso\\Desktop\\DataBase Project\\Nursery management\\Database.mdf\";Integrated Security=True");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("insert into FNFAbbottabadTbl ([Id], [District], [Name_of_Fruit_Nursery_Farm], [Name_of_Fruit], [No_of_Fruit_Plants_Raised], [Total_No_of_Plants_available_for_season], [Under_Size_Plants]) values (@id, @District, @NameOfFruitNurseryFarm, @NameOfFruit, @NoOfFruitPlantsRaised, @TotalNoOfPlantsAvailableForSeason, @UnderSizePlants)", connection);
+            SqlCommand cmd = new SqlCommand("insert into FNFBajaurTbl ([Id], [District], [Name_of_Fruit_Nursery_Farm], [Name_of_Fruit], [No_of_Fruit_Plants_Raised], [Total_No_of_Plants_available_for_season], [Under_Size_Plants]) values (@id, @District, @NameOfFruitNurseryFarm, @NameOfFruit, @NoOfFruitPlantsRaised, @TotalNoOfPlantsAvailableForSeason, @UnderSizePlants)", connection);
             cmd.Parameters.AddWithValue("@id", int.Parse(idTextBox.Text));
             cmd.Parameters.AddWithValue("@District", districtTextBox.Text);
             cmd.Parameters.AddWithValue("@NameOfFruitNurseryFarm", name_of_Fruit_Nursery_FarmTextBox.Text);
@@ -54,37 +65,28 @@ namespace Nursery_management
             MessageBox.Show("Data updated successfully");
         }
 
-        private void Back_button_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DistrictsForm1 df = new DistrictsForm1();
-            df.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Delete_button_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\manso\\Desktop\\DataBase Project\\Nursery management\\Database.mdf\";Integrated Security=True");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("delete from FNFAbbottabadTbl where Id = @id", connection);
+            SqlCommand cmd = new SqlCommand("delete from FNFBajaurTbl where Id = @id", connection);
             cmd.Parameters.AddWithValue("@id", int.Parse(idTextBox.Text));
             cmd.ExecuteNonQuery();
             connection.Close();
             MessageBox.Show("Data deleted successfully");
+
         }
 
         private void Search_button_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\manso\\Desktop\\DataBase Project\\Nursery management\\Database.mdf\";Integrated Security=True");
             connection.Open();
-            SqlCommand cmd = new SqlCommand("select * from FNFAbbottabadTbl ", connection);
+            SqlCommand cmd = new SqlCommand("select * from FNFBajaurTbl ", connection);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
-        }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
         }
     }
